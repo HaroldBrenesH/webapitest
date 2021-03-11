@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  webapitest:
+    image: ${DOCKER_REGISTRY-}webapitest
+    ports: 
+      - 80:80
+      - 443:443
+    build:
+      context: .
+      dockerfile: Dockerfile
+    links:
+      - mysql:mysql
+  
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment: 
+      MYSQL_DATABASE: webapidb
+      MYSQL_ROOT_PASSWORD: root
+    volumes: 
+      - ~/git/webapitest/mysql-data:/var/lib/mysql

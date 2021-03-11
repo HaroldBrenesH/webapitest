@@ -20,3 +20,17 @@ docker exec -it [DOCKERID] /bin/bash
 docker exec -it [DOCKERID] ls -l
 
 https://docs.microsoft.com/en-us/visualstudio/containers/container-build?view=vs-2019
+
+
+# volumenes
+
+linux
+docker run -dp 80:80 -v ~/git/codigo/ruta:/usr/share/nginx/html/
+
+
+windows net app
+docker run -dp 80:80 -v ./git/codigo/ruta:/app/
+
+
+# logs
+docker log <id>
