@@ -69,3 +69,10 @@ kubectl get all
 
 # sacar un pod de un deploy para debugging
 kubectl label pod microservicio:cuarentena --overrides
+
+## Administrar recursos
+
+kubectl get nodes 
+kubectl describe node docker-desktop
+Cada cpu equivala a 1000m (milicores)
+analizar el porcentaje a asignar
