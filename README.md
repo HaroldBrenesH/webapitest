@@ -53,6 +53,11 @@ kubectl -n testing - get services
 1- newNameSpace
 2- newReplicationController
 3- newService
+4- newLoadBalancer
+
+
+
+# si se borra el servicio se borra el loadbalancer
 
 kubectl get nodes -o wide
  curl ip:30000
