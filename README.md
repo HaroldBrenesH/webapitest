@@ -58,10 +58,14 @@ kubectl -n testing - get services
 
 
 # si se borra el servicio se borra el loadbalancer
-
-kubectl get nodes -o wide
- curl ip:30000
-
+ curl http://localhost:30000/weatherforecast/
 kubectl get all
 
-kubectl -n testing scale --replicas=5 deployment/webapitest-dp
+1- newDeployment
+2- newService 
+# este le da la salida por un puerto a todo el NLB
+
+
+
+# sacar un pod de un deploy para debugging
+kubectl label pod microservicio:cuarentena --overrides

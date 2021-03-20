@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
         labels:
-          role: webapitest
+          microservice: webapitest
     spec:
       containers:
       - name: webapitest

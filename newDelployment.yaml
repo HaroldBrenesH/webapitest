@@ -3,16 +3,16 @@ kind: Deployment
 metadata: 
   name: webapitest-dp
   labels:
-    app: webapitest
+    microservice: webapitest
 spec:
   replicas: 3
   selector:
     matchLabels:  
-      app: webapitest
+      microservice: webapitest
   template:
     metadata:
       labels:
-        app: webapitest
+        microservice: webapitest
         # role: webapitest
     spec:
       containers:
