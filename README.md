@@ -61,3 +61,7 @@ kubectl -n testing - get services
 
 kubectl get nodes -o wide
  curl ip:30000
+
+kubectl get all
+
+kubectl -n testing scale --replicas=5 deployment/webapitest-dp

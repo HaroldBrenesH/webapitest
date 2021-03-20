@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: webapitest
+  name: webapitest-rc
 spec:
   replicas: 2
   template:

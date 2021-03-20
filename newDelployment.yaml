@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: webapitest-dp
+  labels:
+    app: webapitest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:  
+      app: webapitest
+  template:
+    metadata:
+      labels:
+        app: webapitest
+        # role: webapitest
+    spec:
+      containers:
+      - name: webapitest
+        image: nottoday/webapitest:latest
+        imagePullPolicy:  Always
+        ports:
+          - containerPort:  80
+
