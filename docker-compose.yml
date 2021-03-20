@@ -20,3 +20,4 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes: 
       - ~/git/webapitest/mysql-data:/var/lib/mysql
+      

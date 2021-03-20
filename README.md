@@ -34,3 +34,25 @@ docker run -dp 80:80 -v ./git/codigo/ruta:/app/
 
 # logs
 docker log <id>
+
+
+#CI/CD
+docker override
+
+
+# kubernetes
+
+kubectl get nodes -o wide
+
+kubectl [-n  NAMESPACE]
+kubectl -n testing - get services
+                         remotecontrollers
+                         namespaces
+
+
+1- newNameSpace
+2- newReplicationController
+3- newService
+
+kubectl get nodes -o wide
+ curl ip:30000
