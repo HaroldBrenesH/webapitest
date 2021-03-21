@@ -50,25 +50,18 @@ kubectl -n testing - get services
                          namespaces
 
 
-1- newNameSpace
-2- newReplicationController
-3- newService
-4- newLoadBalancer
-
+1- newMetrics
+2- DeployServiceHpa
 
 
 # si se borra el servicio se borra el loadbalancer
  curl http://localhost:30000/weatherforecast/
 kubectl get all
 
-1- newDeployment
-2- newService 
-# este le da la salida por un puerto a todo el NLB
-
-
 
 # sacar un pod de un deploy para debugging
 kubectl label pod microservicio:cuarentena --overrides
+
 
 ## Administrar recursos
 
