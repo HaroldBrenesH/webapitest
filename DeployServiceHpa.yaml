@@ -12,7 +12,8 @@ spec:
     targetPort: 80
     nodePort: 30000
   selector:
-    microservice: webapitest
+    app:  webapitest
+    tier: frontend
 ---
 # Crear un deployment con un rs para un App
 apiVersion: apps/v1
@@ -20,16 +21,20 @@ kind: Deployment
 metadata: 
   name: webapitest-dp
   labels:
-    microservice: webapitest
+    app: webapitest
+    type: microservice
 spec:
   replicas: 1
   selector:
     matchLabels:  
-      microservice: webapitest
+      app: webapitest
   template:
     metadata:
       labels:
-        microservice: webapitest
+        app: webapitest
+        framework: net5
+        type: microservice
+        tier: frontend
     spec:
       containers:
       - name: webapitest

@@ -69,3 +69,10 @@ kubectl get nodes
 kubectl describe node docker-desktop
 Cada cpu equivala a 1000m (milicores)
 analizar el porcentaje a asignar
+
+
+# how to get info
+    kubectl label nodes 
+
+    kubectl get pods -L tier=frontend
+    kubectl logs pods - app=webapitest
