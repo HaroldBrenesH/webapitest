@@ -30,7 +30,7 @@ namespace webapiTest.Controllers
                     select ip.ToString();
 
             var ipAddresses= string.Join("; ",ips);
-            cpuInfo.ipAddresses=ipAddresses;
+            cpuInfo.IpAddresses=ipAddresses;
             cpuInfo.Date= DateTime.Now;
             cpuInfo.ComputerName=hostName;
 
