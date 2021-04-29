@@ -3,21 +3,36 @@ version: '3.4'
 services:
   webapitest:
     image: ${DOCKER_REGISTRY-}webapitest
+    container_name: webapitest
+    #network_mode: host
+    restart: always
     ports: 
       - 80:80
       - 443:443
+    volumes:
+      - ~/git/webapitest/sqlserver:/var/opt/mssql/data/
     build:
       context: .
       dockerfile: Dockerfile
-    links:
-      - mysql:mysql
-  
-  mysql:
-    image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
+    #links:
+     # - sqlserver:sqlserver
+ 
+ 
+  # https://hub.docker.com/_/microsoft-mssql-server
+  # docker exec -it sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Nuevo123* -q 'select @@version'
+  sqlserver:      
+    image: mcr.microsoft.com/mssql/server:2019-latest      
+    container_name: sqlserver
+    #network_mode: host
+    restart: always
+    volumes:
+      - ~/git/webapitest/sqlserver:/var/opt/mssql/data/
+    ports:
+      - 21433:1433
     environment: 
-      MYSQL_DATABASE: webapidb
-      MYSQL_ROOT_PASSWORD: root
-    volumes: 
-      - ~/git/webapitest/mysql-data:/var/lib/mysql
-      
+      ACCEPT_EULA: 'Yes'
+      SA_PASSWORD: Nuevo123*
+      MSSQL_PID: Express # Developer, Express, Standar, Enterprise, EnterpriseCore
+  
+# Para hacer un restore database from .bak
+#https://sqlrus.com/2020/07/using-docker-volumes-for-sql-server-in-linux/
