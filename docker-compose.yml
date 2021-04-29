@@ -6,11 +6,13 @@ services:
     container_name: webapitest
     #network_mode: host
     restart: always
+    volumes:
+      - ~/git/webapitest/sqlserver:/var/opt/mssql/data/
     ports: 
       - 80:80
       - 443:443
-    volumes:
-      - ~/git/webapitest/sqlserver:/var/opt/mssql/data/
+    environment: 
+      TZ: 'America/CostaRica'
     build:
       context: .
       dockerfile: Dockerfile
@@ -33,6 +35,7 @@ services:
       ACCEPT_EULA: 'Yes'
       SA_PASSWORD: Nuevo123*
       MSSQL_PID: Express # Developer, Express, Standar, Enterprise, EnterpriseCore
+      TZ: 'America/CostaRica'
   
 # Para hacer un restore database from .bak
 #https://sqlrus.com/2020/07/using-docker-volumes-for-sql-server-in-linux/
