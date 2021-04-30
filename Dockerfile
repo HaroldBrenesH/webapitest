@@ -14,13 +14,13 @@
 
 
 #webapiTest.csproj
-FROM mcr.microsoft.com/dotnet/aspnet:5.0.4-alpine3.13-amd64 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 LABEL Descripcion="Imagen base donde se publicara la aplicacion"
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0.201-alpine3.13-amd64 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 LABEL Descripcion="Imagen temporal utilizada para restaurar y compilar"
 WORKDIR /src
 ARG projectName
@@ -36,5 +36,8 @@ RUN dotnet publish "${projectName}.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
+ARG projectName
+ENV componentName=${projectName}".dll"
+LABEL ProjectName=$componentName
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "${projectName}.dll"] 
+ENTRYPOINT ["dotnet", "webapitest.dll"]

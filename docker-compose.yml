@@ -34,7 +34,7 @@ services:
     environment: 
       ACCEPT_EULA: 'Yes'
       SA_PASSWORD: Nuevo123*
-      MSSQL_PID: Express # Developer, Express, Standar, Enterprise, EnterpriseCore
+      MSSQL_PID: Developer # Developer, Express, Standar, Enterprise, EnterpriseCore
       TZ: 'America/CostaRica'
   
 # Para hacer un restore database from .bak
