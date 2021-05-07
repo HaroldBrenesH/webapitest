@@ -6,5 +6,6 @@ namespace webapiTest
         public DateTime Date { get; set; }
         public string ComputerName { get; set; }
         public string IpAddresses { get; set; }
+        
     }
 }
