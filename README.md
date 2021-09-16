@@ -67,12 +67,12 @@ kubectl label pod microservicio:cuarentena --overrides
 
 kubectl get nodes 
 kubectl describe node docker-desktop
-Cada cpu equivala a 1000m (milicores)
+Cada cpu equivale a 1000m (milicores)
 analizar el porcentaje a asignar
 
 
-# how to get info
+## how to get info
     kubectl label nodes 
 
     kubectl get pods -L tier=frontend
-    kubectl logs pods - app=webapitest
+    kubectl logs pods -L app=webapitest
